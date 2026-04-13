@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Schedule Planner</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Minimal custom CSS to enhance Bootstrap */
+        body {
+            background-color: #f8f9fa; /* Very light gray/blue background */
+        }
+        
+        /* Smooth hover effect for cards */
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+
+        /* Styling for editable table cells */
+        .editable-cell {
+            cursor: text;
+            transition: background-color 0.2s;
+        }
+
+        .editable-cell:focus, .editable-cell:hover {
+            background-color: #e9ecef;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"><i class="bi bi-journal-bookmark-fill me-2"></i>Study Planner</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tips">Tips</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="container mt-5 pt-4">
+        <div class="row align-items-center bg-white p-5 rounded-4 shadow-sm">
+            <div class="col-md-6 mb-4 mb-md-0 text-center text-md-start">
+                <h1 class="display-5 fw-bold text-primary mb-3">Plan Your Study Smartly</h1>
+                <p class="lead text-muted mb-4">Maximize your productivity and achieve your academic goals by organizing your tasks. A clear plan reduces stress and helps you focus on what truly matters.</p>
+                <a href="#schedule" class="btn btn-primary btn-lg shadow-sm px-4">Get Started <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Students studying together" class="img-fluid rounded-3 shadow">
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="container mt-5 pt-4">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-primary">Weekly Timetable</h2>
+            <p class="text-muted">Click any cell below to edit and build your custom schedule.</p>
+        </div>
+        
+        <div class="table-responsive bg-white p-4 rounded-4 shadow-sm">
+            <table class="table table-bordered table-hover align-middle text-center mb-0">
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Mon</th>
+                        <th scope="col">Tue</th>
+                        <th scope="col">Wed</th>
+                        <th scope="col">Thu</th>
+                        <th scope="col">Fri</th>
+                        <th scope="col">Sat</th>
+                        <th scope="col">Sun</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="bg-light">08:00 AM</th>
+                        <td class="editable-cell" contenteditable="true">Math</td>
+                        <td class="editable-cell" contenteditable="true">Physics</td>
+                        <td class="editable-cell" contenteditable="true">Math</td>
+                        <td class="editable-cell" contenteditable="true">Chemistry</td>
+                        <td class="editable-cell" contenteditable="true">Physics</td>
+                        <td class="editable-cell" contenteditable="true">Review</td>
+                        <td class="editable-cell text-success fw-bold" contenteditable="true">Rest</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="bg-light">12:00 PM</th>
+                        <td colspan="7" class="bg-light text-muted fst-italic">Lunch Break</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="bg-light">02:00 PM</th>
+                        <td class="editable-cell" contenteditable="true">English</td>
+                        <td class="editable-cell" contenteditable="true">Coding</td>
+                        <td class="editable-cell" contenteditable="true">English</td>
+                        <td class="editable-cell" contenteditable="true">Coding</td>
+                        <td class="editable-cell" contenteditable="true">History</td>
+                        <td class="editable-cell" contenteditable="true">Homework</td>
+                        <td class="editable-cell" contenteditable="true">Planning</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="bg-light">06:00 PM</th>
+                        <td class="editable-cell" contenteditable="true">Reading</td>
+                        <td class="editable-cell" contenteditable="true">Reading</td>
+                        <td class="editable-cell" contenteditable="true">Reading</td>
+                        <td class="editable-cell" contenteditable="true">Reading</td>
+                        <td class="editable-cell text-primary" contenteditable="true">Free Time</td>
+                        <td class="editable-cell text-primary" contenteditable="true">Free Time</td>
+                        <td class="editable-cell" contenteditable="true">Prep for Mon</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="tips" class="container mt-5 pt-4">
+        <h2 class="fw-bold text-center text-primary mb-4">Study Tips</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm hover-card">
+                    <div class="card-body text-center p-4">
+                        <div class="text-primary mb-3">
+                            <i class="bi bi-stopwatch fs-1"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Pomodoro</h5>
+                        <p class="card-text text-muted">Study for 25 mins, break for 5 mins. Keeps your brain focused and prevents burnout.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm hover-card">
+                    <div class="card-body text-center p-4">
+                        <div class="text-primary mb-3">
+                            <i class="bi bi-brain fs-1"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Active Recall</h5>
+                        <p class="card-text text-muted">Test yourself constantly instead of just re-reading your notes passively.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm hover-card">
+                    <div class="card-body text-center p-4">
+                        <div class="text-primary mb-3">
+                            <i class="bi bi-phone-vibrate fs-1"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">No Distractions</h5>
+                        <p class="card-text text-muted">Keep your phone in another room to maintain a deep state of concentration.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm hover-card">
+                    <div class="card-body text-center p-4">
+                        <div class="text-primary mb-3">
+                            <i class="bi bi-globe fs-1"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Use Resources</h5>
+                        <p class="card-text text-muted">Stuck? Explore free external tools like <a href="https://www.khanacademy.org/" target="_blank" class="text-decoration-none">Khan Academy</a> to learn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mt-5 pt-4 mb-5">
+        <div class="alert alert-info border-0 shadow-sm text-center p-4 rounded-4" role="alert">
+            <i class="bi bi-lightbulb-fill text-warning fs-3 mb-2 d-block"></i>
+            <h4 class="alert-heading fw-bold">Stay Motivated!</h4>
+            <p class="mb-0 fs-5 font-monospace">"The expert in anything was once a beginner." – Helen Hayes</p>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-dark text-white text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Study Planner | Built with <i class="bi bi-bootstrap-fill text-primary"></i> Bootstrap 5</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

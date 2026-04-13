@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="page-title">Weekly Schedule</h2>
+<div class="schedule-grid">
+    {% for session in schedule %}
+    <div class="schedule-card">
+        <div class="card-header">
+            <span class="day-badge">{{ session.day }}</span>
+            <span class="type-badge"><i class="fa-solid fa-tag"></i> {{ session.type }}</span>
+        </div>
+        <h3 class="subject-title">{{ session.subject }}</h3>
+        <div class="time-info">
+            <p><i class="fa-regular fa-clock"></i> {{ session.time }}</p>
+            <p><i class="fa-solid fa-hourglass-half"></i> {{ session.duration }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

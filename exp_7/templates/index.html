@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1><i class="fa-solid fa-bolt accent-text"></i> Smart Study Planner</h1>
+            <p id="motivational-quote" class="quote">"Success is the sum of small efforts, repeated day in and day out."</p>
+        </header>
+
+        <div class="form-card fade-in">
+            <h2 id="form-title">Add New Study Task</h2>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                <div class="input-group">
+                    <input type="text" id="subject" placeholder="Subject (e.g. Machine Learning)" required>
+                    <input type="date" id="date" required>
+                </div>
+                <input type="text" id="description" placeholder="How are you feeling about this task? What will you do?" required>
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Task</button>
+                    <button type="button" id="cancel-btn" class="btn btn-secondary hidden">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="task-container">
+            <h2>Your Schedule</h2>
+            <div id="task-list" class="task-grid">
+                </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

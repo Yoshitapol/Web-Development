@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="timer-container">
+    <h2 class="page-title">Pomodoro Focus Timer</h2>
+    <div class="timer-circle">
+        <span id="time-display">25:00</span>
+    </div>
+    <div class="timer-controls">
+        <button id="start-btn" class="btn btn-primary"><i class="fa-solid fa-play"></i> Start</button>
+        <button id="pause-btn" class="btn btn-secondary"><i class="fa-solid fa-pause"></i> Pause</button>
+        <button id="reset-btn" class="btn btn-outline"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+    </div>
+</div>
+
+<script>
+    let timer;
+    let timeLeft = 1500; // 25 minutes in seconds
+    let isRunning = false;
+
+    const display = document.getElementById('time-display');
+    
+    function updateDisplay() {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        display.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
+
+    document.getElementById('start-btn').addEventListener('click', () => {
+        if (!isRunning) {
+            isRunning = true;
+            timer = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    updateDisplay();
+                } else {
+                    clearInterval(timer);
+                    alert("Time's up! Take a break.");
+                }
+            }, 1000);
+        }
+    });
+
+    document.getElementById('pause-btn').addEventListener('click', () => {
+        clearInterval(timer);
+        isRunning = false;
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+        clearInterval(timer);
+        isRunning = false;
+        timeLeft = 1500;
+        updateDisplay();
+    });
+</script>
+{% endblock %}

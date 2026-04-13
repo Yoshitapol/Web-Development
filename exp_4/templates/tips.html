@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="page-title">Pro Study Tips</h2>
+<div class="tips-grid">
+    {% for tip in tips %}
+    <div class="tip-card">
+        <div class="tip-icon"><i class="fa-solid {{ tip.icon }}"></i></div>
+        <h3>{{ tip.title }}</h3>
+        <p>{{ tip.desc }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

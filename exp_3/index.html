@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnPlatform - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">LearnPlatform</div>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Study Schedule</a></li>
+                <li><a href="#">Community</a></li>
+            </ul>
+        </nav>
+        <a href="login.html" class="login-btn">Log In</a>
+    </header>
+
+    <section class="hero">
+        <h1>Master Your Study Routine</h1>
+        <p>Organize your tasks, set your goals, and track your progress all in one place. Your ultimate learning companion.</p>
+        <a href="#" class="hero-btn">Create Your Plan</a>
+    </section>
+
+    <section class="dashboard-preview">
+        <div class="section-header">
+            <h2>Today's Schedule</h2>
+            <a href="#" class="view-all">Go to Full Planner &rarr;</a>
+        </div>
+
+        <div class="schedule-grid" id="schedule-container">
+            <div class="schedule-card completed">
+                <div class="card-time">09:00 AM - 10:30 AM</div>
+                <h3 class="card-title">Physics 101: Thermodynamics</h3>
+                <p class="card-desc">Review lecture notes and complete practice quiz.</p>
+            </div>
+
+            <div class="schedule-card urgent">
+                <div class="card-time">11:00 AM - 12:30 PM</div>
+                <h3 class="card-title">Computer Science Project</h3>
+                <p class="card-desc">Write unit tests for the user authentication module.</p>
+            </div>
+
+            <div class="schedule-card">
+                <div class="card-time">02:00 PM - 04:00 PM</div>
+                <h3 class="card-title">Spanish Language Practice</h3>
+                <p class="card-desc">Conversational practice and vocabulary flashcards.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 LearnPlatform. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

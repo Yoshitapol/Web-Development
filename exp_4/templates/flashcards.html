@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="page-title">Study Flashcards</h2>
+<p style="text-align: center; color: #64748b; margin-bottom: 2rem;">Hover over a card to reveal the answer.</p>
+
+<div class="flashcard-grid">
+    {% for card in cards %}
+    <div class="flashcard">
+        <div class="flashcard-inner">
+            <div class="flashcard-front">
+                <h3><i class="fa-regular fa-circle-question"></i> Question</h3>
+                <p>{{ card.question }}</p>
+            </div>
+            <div class="flashcard-back">
+                <h3><i class="fa-solid fa-check-double"></i> Answer</h3>
+                <p>{{ card.answer }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

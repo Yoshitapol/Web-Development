@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-header">
+    <h1>Welcome back, Student! 👋</h1>
+    <p>Here is your study overview for today.</p>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fa-solid fa-book-open"></i></div>
+        <div class="stat-info">
+            <h3>{{ stats.total_classes }}</h3>
+            <p>Classes Scheduled</p>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon" style="background: #e8f5e9; color: #2e7d32;"><i class="fa-solid fa-layer-group"></i></div>
+        <div class="stat-info">
+            <h3>{{ stats.flashcards }}</h3>
+            <p>Flashcards Ready</p>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon" style="background: #fff3e0; color: #ef6c00;"><i class="fa-solid fa-fire"></i></div>
+        <div class="stat-info">
+            <h3>3 Day</h3>
+            <p>Study Streak</p>
+        </div>
+    </div>
+</div>
+
+<div class="quick-actions">
+    <h2>Quick Actions</h2>
+    <div class="action-buttons">
+        <a href="{{ url_for('timer') }}" class="btn btn-primary"><i class="fa-solid fa-play"></i> Start Pomodoro</a>
+        <a href="{{ url_for('flashcards') }}" class="btn btn-secondary"><i class="fa-solid fa-brain"></i> Review Flashcards</a>
+    </div>
+</div>
+{% endblock %}

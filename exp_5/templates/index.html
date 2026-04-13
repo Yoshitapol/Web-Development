@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="dashboard-header-flex">
+    <div>
+        <h1 id="greetingMsg">Welcome back! 👋</h1>
+        <p class="text-muted">Here is your study overview for <span id="currentDate" style="font-weight: 600; color: var(--primary);"></span>.</p>
+    </div>
+    <div class="quick-actions-top">
+        <a href="{{ url_for('timer') }}" class="btn btn-primary"><i class="fa-solid fa-play"></i> Focus Now</a>
+    </div>
+</div>
+
+<div class="dashboard-layout">
+    <div class="dashboard-main">
+        
+        <div class="progress-card shadow-card">
+            <div class="progress-header">
+                <h3>Daily Goal Progress</h3>
+                <span id="progress-text" class="badge">0% Completed</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div id="progress-fill" class="progress-bar-fill"></div>
+            </div>
+            <p class="text-muted" style="margin-top: 1rem; font-size: 0.9rem;">Complete your tasks on the right to fill this bar.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card shadow-card">
+                <div class="stat-icon"><i class="fa-solid fa-book-open"></i></div>
+                <div class="stat-info">
+                    <h3>{{ stats.total_classes }}</h3>
+                    <p>Total Classes</p>
+                </div>
+            </div>
+            <div class="stat-card shadow-card">
+                <div class="stat-icon" style="background: #e8f5e9; color: #2e7d32;"><i class="fa-solid fa-layer-group"></i></div>
+                <div class="stat-info">
+                    <h3>{{ stats.flashcards }}</h3>
+                    <p>Flashcards Ready</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-actions-banner shadow-card">
+            <div class="banner-content">
+                <h3>Review Time!</h3>
+                <p>You have {{ stats.flashcards }} flashcards waiting for review.</p>
+            </div>
+            <a href="{{ url_for('flashcards') }}" class="btn btn-secondary">Review Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <div class="dashboard-sidebar">
+        <div class="task-card shadow-card">
+            <h3><i class="fa-solid fa-list-check" style="color: var(--primary);"></i> Today's Schedule</h3>
+            <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Check off sessions as you complete them.</p>
+            
+            <div class="task-list" id="task-list">
+                {% for session in todays_classes %}
+                <label class="task-item" for="task-{{ session.id }}">
+                    <input type="checkbox" class="task-checkbox" id="task-{{ session.id }}">
+                    <div class="task-details">
+                        <span class="task-title">{{ session.subject }} ({{ session.type }})</span>
+                        <span class="task-time"><i class="fa-regular fa-clock"></i> {{ session.time }} - {{ session.duration }}</span>
+                    </div>
+                </label>
+                {% else %}
+                <p class="text-muted" style="text-align: center; padding: 2rem 0;">No classes scheduled for today! 🎉</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Dynamic Greeting & Date
+        const hour = new Date().getHours();
+        const greeting = hour < 12 ? 'Good Morning!' : hour < 18 ? 'Good Afternoon!' : 'Good Evening!';
+        document.getElementById('greetingMsg').innerHTML = `${greeting} 👋`;
+        
+        const options = { weekday: 'long', month: 'short', day: 'numeric' };
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', options);
+
+        // Progress Bar Logic
+        const checkboxes = document.querySelectorAll('.task-checkbox');
+        const progressFill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('progress-text');
+        
+        function updateProgress() {
+            if (checkboxes.length === 0) {
+                progressFill.style.width = '100%';
+                progressText.textContent = '100% Completed';
+                return;
+            }
+            
+            const total = checkboxes.length;
+            const checked = document.querySelectorAll('.task-checkbox:checked').length;
+            const percentage = Math.round((checked / total) * 100);
+            
+            progressFill.style.width = percentage + '%';
+            progressText.textContent = percentage + '% Completed';
+            
+            // Add subtle pulse effect when 100%
+            if (percentage === 100) {
+                progressFill.style.backgroundColor = '#10b981'; // Turn green
+                progressText.style.backgroundColor = '#d1fae5';
+                progressText.style.color = '#065f46';
+                progressText.textContent = '🎉 All Done!';
+            } else {
+                progressFill.style.backgroundColor = 'var(--primary)';
+                progressText.style.backgroundColor = '#e0e7ff';
+                progressText.style.color = 'var(--primary)';
+            }
+        }
+
+        checkboxes.forEach(box => {
+            box.addEventListener('change', updateProgress);
+        });
+        
+        // Initialize progress on load
+        updateProgress();
+    });
+</script>
+{% endblock %}

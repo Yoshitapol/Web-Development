@@ -1,0 +1,189 @@
+/* --- General Styles & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Navigation Bar --- */
+header {
+    background-color: #ffffff;
+    padding: 1rem 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4A90E2;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+nav a {
+    font-weight: 500;
+    transition: color 0.3s;
+}
+nav a:hover, nav a.active {
+    color: #4A90E2;
+}
+.login-btn {
+    background-color: #4A90E2;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.login-btn:hover {
+    background-color: #357ABD;
+}
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #4A90E2 0%, #50E3C2 100%);
+    color: white;
+}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    opacity: 0.9;
+}
+.hero-btn {
+    background-color: #ffffff;
+    color: #4A90E2;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-block;
+}
+.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* --- Study Schedule Widget Section --- */
+.dashboard-preview {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: auto;
+}
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+.section-header h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+}
+.view-all {
+    color: #4A90E2;
+    font-weight: bold;
+}
+.view-all:hover {
+    text-decoration: underline;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.schedule-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-left: 5px solid #4A90E2;
+    transition: transform 0.2s ease, opacity 0.3s;
+    cursor: pointer;
+}
+.schedule-card:hover {
+    transform: translateY(-5px);
+}
+/* States applied via classes */
+.schedule-card.completed {
+    border-left-color: #50E3C2;
+    opacity: 0.6;
+    background-color: #f9fdfc;
+}
+.schedule-card.completed .card-title {
+    text-decoration: line-through;
+    color: #95a5a6;
+}
+.schedule-card.urgent {
+    border-left-color: #E74C3C;
+}
+
+.card-time {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+    transition: color 0.3s;
+}
+.card-desc {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #2c3e50;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; 
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}

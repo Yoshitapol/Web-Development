@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Study Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><i class="fa-solid fa-graduation-cap"></i> NexusPortal</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                <li><a href="{{ url_for('schedule') }}"><i class="fa-solid fa-calendar-days"></i> Schedule</a></li>
+                <li><a href="{{ url_for('timer') }}"><i class="fa-solid fa-stopwatch"></i> Timer</a></li>
+                <li><a href="{{ url_for('flashcards') }}"><i class="fa-solid fa-clone"></i> Flashcards</a></li>
+                <li><a href="{{ url_for('tips') }}"><i class="fa-solid fa-lightbulb"></i> Tips</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

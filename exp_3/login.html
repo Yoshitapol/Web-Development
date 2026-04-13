@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>User Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+                <div id="nameError" class="error-message">Please enter a valid name (letters and spaces only).</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter your email">
+                <div id="emailError" class="error-message">Please enter a valid email address.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="text" id="mobile" placeholder="Enter 10-digit mobile number">
+                <div id="mobileError" class="error-message">Please enter exactly 10 digits.</div>
+            </div>
+
+            <button type="submit" class="btn-submit">Login</button>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
